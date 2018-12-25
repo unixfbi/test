@@ -1,0 +1,15 @@
+#!/bin/bash
+
+unset GIT_DIR
+NowPath=`pwd`
+DeployPath="/opt/www/test"
+cd $DeployPath
+git add . -A && git stash
+git pull origin master
+composer install --ignore-platform-reqs
+
+cd $NowPath
+echo "is OK"
+
+exit 0
+
